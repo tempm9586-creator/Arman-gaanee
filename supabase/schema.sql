@@ -3,6 +3,7 @@ create extension if not exists pgcrypto;
 create table if not exists public.profiles (
  id uuid primary key references auth.users(id) on delete cascade,
  display_name text,
+ username text,
  role text not null default 'user' check(role in ('user','music_manager','content_manager','support_admin','super_admin')),
  suspended boolean not null default false,
  created_at timestamptz not null default now()
@@ -47,6 +48,14 @@ create or replace function public.handle_new_user() returns trigger language plp
 begin insert into public.profiles(id,display_name,role) values(new.id,coalesce(new.raw_user_meta_data->>'display_name',''), 'user') on conflict(id) do nothing; return new; end; $$;
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created after insert on auth.users for each row execute procedure public.handle_new_user();
+create unique index if not exists profiles_username_lower_unique on public.profiles (lower(username)) where username is not null;
+create or replace function public.protect_profile_privileges() returns trigger language plpgsql security definer set search_path=public as $
+begin
+ if auth.uid() is not null and (new.role is distinct from old.role or new.suspended is distinct from old.suspended) then raise exception 'Role and suspension can only be changed by an administrator'; end if;
+ return new;
+end; $;
+drop trigger if exists protect_profile_privileges on public.profiles;
+create trigger protect_profile_privileges before update on public.profiles for each row execute function public.protect_profile_privileges();
 -- Enable row-level security on all user data.
 alter table public.profiles enable row level security;
 alter table public.songs enable row level security;
