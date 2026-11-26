@@ -1,0 +1,3 @@
+import {createClient} from '@supabase/supabase-js';
+const url=import.meta.env.VITE_SUPABASE_URL;const key=import.meta.env.VITE_SUPABASE_ANON_KEY;
+export const supabase=url&&key?createClient(url,key):{auth:{getSession:async()=>({data:{session:null}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}}),signInWithPassword:async()=>({error:{message:'Set Supabase environment variables first'}}),signUp:async()=>({error:{message:'Set Supabase environment variables first'}}),signOut:async()=>({})}};
