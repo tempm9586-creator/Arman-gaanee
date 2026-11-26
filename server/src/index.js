@@ -6,6 +6,8 @@ import rateLimit from 'express-rate-limit';
 import {createClient} from '@supabase/supabase-js';
 import {z} from 'zod';
 const app=express();
+// Render runs behind a reverse proxy; trust the first proxy so rate limiting can read client IPs safely.
+app.set('trust proxy',1);
 app.use(helmet());
 app.use(cors({origin:(process.env.CLIENT_ORIGIN||'http://localhost:5173').split(',')}));
 app.use(express.json({limit:'1mb'}));
