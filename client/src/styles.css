@@ -76,3 +76,12 @@
 .shell.logged-in .player-progress input{width:100%;accent-color:#8de8ce}
 .shell.logged-in .player audio{width:100%;height:24px;grid-column:1/-1}
 @media(max-width:650px){.shell.logged-in .player{grid-template-columns:1fr auto;gap:8px}.shell.logged-in .player-progress{grid-column:1/-1}.shell.logged-in .player audio{grid-column:1/-1}}
+
+/* Live site identity themes */
+.theme-jade{--accent:#8de8ce;--accent-soft:#1d3b3a}
+.theme-ocean{--accent:#8dc9ff;--accent-soft:#19334d}
+.theme-midnight{--accent:#b99aff;--accent-soft:#292039}
+.theme-jade .primary,.theme-ocean .primary{background:var(--accent);color:#0d1820}
+.theme-jade .brand i,.theme-jade .hero em,.theme-jade h1 em,.theme-ocean .brand i,.theme-ocean .hero em,.theme-ocean h1 em{color:var(--accent)}
+.theme-jade .side button.active,.theme-jade .side button:hover,.theme-ocean .side button.active,.theme-ocean .side button:hover{background:var(--accent-soft);color:var(--accent)}
+.theme-jade .player-controls button.active,.theme-ocean .player-controls button.active{background:var(--accent);color:#102020}
