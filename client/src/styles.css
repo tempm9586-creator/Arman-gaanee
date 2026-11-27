@@ -50,3 +50,17 @@
 .shell.logged-in .auth-submit{background:linear-gradient(120deg,#9bf0d5,#5ac8ae)!important;color:#102a2b!important}
 .shell.logged-in .toast{background:#21443e;border-color:#5eaa91;color:#eafff6}
 @media(max-width:600px){.shell.logged-in .side{background:#142a30;border-bottom:1px solid #31514f}.shell.logged-in .player{background:#102127f5}}
+
+/* ARMAN GAANE creator-console identity layer */
+.shell.logged-in .admin-heading{padding:24px 26px;border:1px solid #315d56;border-radius:22px;background:radial-gradient(ellipse at 90% 10%,#285b50 0,transparent 42%),linear-gradient(135deg,#142b30,#172d2e 62%,#1b3a35);box-shadow:0 18px 48px #06161970}
+.shell.logged-in .admin-heading h1{margin:8px 0 10px;letter-spacing:-2px}
+.shell.logged-in .admin-kicker,.shell.logged-in .profile-kicker{display:block;color:#8de6c8;font-size:9px;font-weight:800;letter-spacing:2px}
+.shell.logged-in .admin-heading .muted{color:#a8c8bf;line-height:1.7}
+.shell.logged-in .tabs{flex-wrap:wrap;gap:7px}
+.shell.logged-in .tabs button{border:1px solid #31534f;font-weight:700;letter-spacing:.2px}
+.shell.logged-in .owner-account{border-color:#4c8c78;background:linear-gradient(145deg,#1b3938,#172c31)}
+.shell.logged-in .owner-account h2{color:#a4f0d8}
+.shell.logged-in .owner-account p b{color:#d8f8ec}
+.shell.logged-in .staff-create{border-color:#477c6b;background:linear-gradient(145deg,#1c3938,#172b31)}
+.shell.logged-in .staff-create select{background:#102127;border:1px solid #365452;color:#f0fffa;padding:12px;border-radius:8px}
+.shell.logged-in .profile-form .profile-kicker{margin-bottom:-4px}
