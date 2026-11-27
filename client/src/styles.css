@@ -64,3 +64,15 @@
 .shell.logged-in .staff-create{border-color:#477c6b;background:linear-gradient(145deg,#1c3938,#172b31)}
 .shell.logged-in .staff-create select{background:#102127;border:1px solid #365452;color:#f0fffa;padding:12px;border-radius:8px}
 .shell.logged-in .profile-form .profile-kicker{margin-bottom:-4px}
+
+/* Full player transport and seek controls */
+.shell.logged-in .player{display:grid;grid-template-columns:minmax(120px,1fr) auto minmax(140px,1.2fr);align-items:center;gap:14px;padding:12px 18px}
+.shell.logged-in .player-track{min-width:0;display:flex;flex-direction:column;gap:4px}
+.shell.logged-in .player-track b,.shell.logged-in .player-track small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shell.logged-in .player-controls{display:flex;align-items:center;gap:7px}
+.shell.logged-in .player-controls button{min-width:34px;height:34px;border-radius:50%;border:1px solid #31514f;background:#1d3b3a;color:#d8f8ec}
+.shell.logged-in .player-controls button.active{background:#8de8ce;color:#102c2b}
+.shell.logged-in .player-progress{display:flex;align-items:center;gap:8px;font-size:11px;color:#9ab9b3}
+.shell.logged-in .player-progress input{width:100%;accent-color:#8de8ce}
+.shell.logged-in .player audio{width:100%;height:24px;grid-column:1/-1}
+@media(max-width:650px){.shell.logged-in .player{grid-template-columns:1fr auto;gap:8px}.shell.logged-in .player-progress{grid-column:1/-1}.shell.logged-in .player audio{grid-column:1/-1}}
